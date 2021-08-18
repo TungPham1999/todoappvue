@@ -1,0 +1,39 @@
+#title {
+  text-align: center;
+  font-family: arial, sans-serif;
+}
+#table-element {
+  text-align: center;
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+  width: 100%;
+}
+
+#table-element td,
+#table-element th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#table-element tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table-element tr:hover {
+  background-color: #ddd;
+}
+
+#table-element th {
+  text-align: center;
+  background-color: #4caf50;
+  color: white;
+}
+.App {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: 0 auto;
+}
+#table-element {
+  margin-top: 20px;
+}
