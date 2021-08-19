@@ -124,6 +124,10 @@ button {
   padding: 1rem;
   border: 1px solid #ccc;
 }
+.error {
+  font-size: 14px;
+  color: red;
+}
 .editor-class {
   background-color: lightgray;
   padding: 1rem;

@@ -13,6 +13,7 @@ const TestExamTwo = () => {
   const [infomation, setInfomation] = useState({ fName: "", lName: "" });
   const [todos, setTodos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [error, setError] = useState(false);
   const [isShowForm, setIsShowForm] = useState(false);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,6 +25,11 @@ const TestExamTwo = () => {
 
   const handleSubmitInfomation = (e) => {
     e.preventDefault();
+    if (!infomation.lName && !infomation.fName) {
+      setError(true)
+      return;
+    }
+    setError(false)
     const dataNew = [...todos, infomation];
     localStorage.setItem("data", JSON.stringify(sortAlphabetically(dataNew)));
     setInfomation({ fName: "", lName: "" });
@@ -111,6 +117,9 @@ const TestExamTwo = () => {
               onInputChange={handleChange}
             />
           </div>
+          {error && (
+            <div className="error">You can't leave both fields blank</div>
+          )}
           <Button type="submit" value="Submit" />
         </form>
       )}
