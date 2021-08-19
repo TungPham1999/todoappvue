@@ -29,8 +29,7 @@ const TestExamOne = () => {
   };
   return (
     <div className="content-left">
-      <h2>Test 1</h2>
-      <p>Tổng số kí tự: {countLetter}</p>
+      <b>Tổng số kí tự: {countLetter}</b>
       <form onSubmit={handleSubmit}>
         <div className="editorConvert">
           <EditorConvertToHTML onChangeEditorHTML={onChangeEditorHTML} />

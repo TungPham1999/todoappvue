@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import { sortAlphabetically, removeSignLetter } from "../utils";
+import {
+  sortAlphabetically,
+  removeSignLetter,
+  filterSearchAdvance,
+} from "../utils";
 import Input from "./Input";
 import Button from "./Button";
 import HeaderTableRender from "./HeaderTableRender";
@@ -26,6 +30,7 @@ const TestExamTwo = () => {
     setIsShowForm(false);
   };
   const addRecord = () => {
+    setSearchTerm("");
     setIsShowForm(true);
   };
   const headerKeys = ["Frist Name", "Last Name"];
@@ -41,18 +46,30 @@ const TestExamTwo = () => {
   const handleChangeSearch = (e) => {
     setSearchTerm(e.target.value);
   };
-
+  const renderTable = () => {
+    if (todos && todos.length) {
+      return (
+        <Table>
+          <HeaderTableRender headerKeys={headerKeys} />
+          {renderTableDataInfo}
+        </Table>
+      );
+    } else {
+      return <p className="noData">No data here</p>;
+    }
+  };
   useEffect(() => {
     setTodos(JSON.parse(localStorage.getItem("data")) || []);
   }, [infomation]);
 
   useEffect(() => {
-    if (searchTerm) {
-      const dataDefault = JSON.parse(localStorage.getItem("data"));
+    const dataDefault = JSON.parse(localStorage.getItem("data"));
+    if (searchTerm && dataDefault && dataDefault.length) {
       const results = dataDefault.filter((name) =>
-        removeSignLetter(name.lName.concat(name.fName))
-          .toLowerCase()
-          .includes(removeSignLetter(searchTerm))
+        filterSearchAdvance(
+          removeSignLetter(name.lName.concat(name.fName).replace(/ /g, "")),
+          removeSignLetter(searchTerm)
+        )
       );
       setTodos(results);
     } else {
@@ -62,22 +79,17 @@ const TestExamTwo = () => {
   return (
     <div className="content-right">
       <div className="header--wrapper">
-        <h2>Test 2</h2>
+        <Input
+          type="text"
+          placeholder="Search"
+          name="search"
+          searchTerm={searchTerm}
+          onInputChange={handleChangeSearch}
+        />
         {!isShowForm && (
           <Button type="button" value="Add" clickAction={addRecord} />
         )}
       </div>
-      <Input
-        type="text"
-        placeholder="Search"
-        name="search"
-        searchTerm={searchTerm}
-        onInputChange={handleChangeSearch}
-      />
-      <Table>
-        <HeaderTableRender headerKeys={headerKeys} />
-        {renderTableDataInfo}
-      </Table>
       {isShowForm && (
         <form
           onSubmit={handleSubmitInfomation}
@@ -102,6 +114,7 @@ const TestExamTwo = () => {
           <Button type="submit" value="Submit" />
         </form>
       )}
+      {renderTable()}
     </div>
   );
 };

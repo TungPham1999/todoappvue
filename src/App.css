@@ -26,13 +26,7 @@
   line-height: 1.5;
   color: #212529;
 }
-.App {
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-  margin: 0 auto;
-  overflow: auto;
-}
+
 #table-element {
   margin-top: 20px;
 }
@@ -98,8 +92,7 @@ button {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
   height: auto;
-  margin: 40px;
-  width: 400px;
+  width: 100%;
   padding: 40px;
 }
 
@@ -108,14 +101,23 @@ button {
   justify-content: space-between;
 }
 .input-group input {
-  width: 40%;
+  width: 45%;
+  margin-top: 25px;
 }
 .header--wrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .header--wrapper h2 {
   margin-right: 10px;
+}
+.header--wrapper input {
+  margin-bottom: 0px;
+  width: 70%;
+}
+.header--wrapper button {
+  width: 20%;
 }
 
 .wrapper-class {
@@ -131,14 +133,107 @@ button {
   border: 1px solid #ccc;
 }
 .content-left .editorConvert {
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 .demo-content {
   border: 1px solid #f1f1f1;
   padding: 5px;
   border-radius: 5px;
-  width: 97%;
+  width: 100%;
+  margin-top: 0.75rem;
   border-radius: 2px;
   resize: none;
   height: 100px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 80px auto;
+}
+
+.tabs__content {
+  padding: 30px;
+  color: var(--paragraph);
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  background: var(--cardBG);
+}
+
+.tabs__content h3 {
+  color: var(--headline);
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.tabs__nav {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 10px 0 30px;
+}
+
+.tabs__button {
+  background: rgba(0, 0, 0, 0);
+  padding: 4px;
+  color: var(--headline);
+  box-shadow: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  display: block;
+  position: relative;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+.tabs__button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--activeColor);
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.4s ease-in-out;
+}
+
+.tabs__button.active::after {
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 0s, opacity 0.4s ease-in-out;
+}
+
+.tabs__item:not(:last-child) {
+  margin-right: 20px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --headline: #333;
+  --paragraph: #c9bae2;
+  --cardBG: #463366;
+  --cardText: #cabae2;
+  --activeColor: #ff6e6c;
+}
+
+body {
+  background: var(--bg);
+}
+.noData {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
