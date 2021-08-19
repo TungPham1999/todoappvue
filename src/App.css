@@ -31,6 +31,7 @@
   justify-content: space-between;
   width: 50%;
   margin: 0 auto;
+  overflow: auto;
 }
 #table-element {
   margin-top: 20px;
