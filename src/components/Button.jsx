@@ -1,6 +1,10 @@
 const Button = (props) => {
-  const { type, value } = props;
-  return <button type={type}>{value}</button>;
+  const { type, value, clickAction } = props;
+  return (
+    <button type={type} onClick={clickAction}>
+      {value}
+    </button>
+  );
 };
 
-export default Button
+export default Button;

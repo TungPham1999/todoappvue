@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { handleRemoveEleTags, countCharacterSameValue } from "../utils";
-import Input from "./Input";
 import Button from "./Button";
 import HeaderTableRender from "./HeaderTableRender";
+import EditorConvertToHTML from "./HTMLEditor";
 import Table from "./Table";
 
 const TestExamOne = () => {
@@ -18,34 +18,31 @@ const TestExamOne = () => {
     </tr>
   ));
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const contentText = handleRemoveEleTags(value);
     setCharacterStatistics(countCharacterSameValue(contentText));
     setCountLetter(contentText.length);
   };
+  const onChangeEditorHTML = (data) => {
+    setValue(data);
+  };
   return (
     <div className="content-left">
       <h2>Test 1</h2>
-      <div id="total-character">
-        <h4>Tổng số kí tự: {countLetter}</h4>
-      </div>
+      <p>Tổng số kí tự: {countLetter}</p>
       <form onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          value={value}
-          placeholder="Enter a text …"
-          onInputChange={handleChange}
-        />
+        <div className="editorConvert">
+          <EditorConvertToHTML onChangeEditorHTML={onChangeEditorHTML} />
+        </div>
         <Button type="submit" value="Submit" />
       </form>
-      <Table>
-        <HeaderTableRender headerKeys={headerKeys} />
-        {renderTableData}
-      </Table>
+      {value && (
+        <Table>
+          <HeaderTableRender headerKeys={headerKeys} />
+          {renderTableData}
+        </Table>
+      )}
     </div>
   );
 };
