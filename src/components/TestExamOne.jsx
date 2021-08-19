@@ -36,7 +36,7 @@ const TestExamOne = () => {
         </div>
         <Button type="submit" value="Submit" />
       </form>
-      {value && (
+      {characterStatistics && characterStatistics.length > 0 && (
         <Table>
           <HeaderTableRender headerKeys={headerKeys} />
           {renderTableData}

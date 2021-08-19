@@ -83,7 +83,7 @@ const TestExamTwo = () => {
           type="text"
           placeholder="Search"
           name="search"
-          searchTerm={searchTerm}
+          value={searchTerm}
           onInputChange={handleChangeSearch}
         />
         {!isShowForm && (
@@ -98,14 +98,14 @@ const TestExamTwo = () => {
           <div className="input-group">
             <Input
               type="text"
-              placeholder="Enter text ..."
+              placeholder="Enter text first name..."
               name="fName"
               value={infomation.fName}
               onInputChange={handleChange}
             />
             <Input
               type="text"
-              placeholder="Enter text ..."
+              placeholder="Enter text last name..."
               name="lName"
               value={infomation.lName}
               onInputChange={handleChange}
