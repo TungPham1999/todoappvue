@@ -1,3 +1,5 @@
+import "./index.css";
+
 const Table = ({ children }) => {
   return (
     <table id="table-element">

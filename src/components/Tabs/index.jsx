@@ -1,6 +1,6 @@
 import { useState,useMemo } from "react";
-import Navigation from './Navigation';
-import Tab from './Tab';
+import Navigation from '../Navigation';
+import Tab from '../Tab';
 
 const Tabs = (props) => {
   const [activeTabId, setActiveTab] = useState(props.tabs[0].id);

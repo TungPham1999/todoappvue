@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { handleRemoveEleTags, countCharacterSameValue } from "../utils";
-import Button from "./Button";
-import HeaderTableRender from "./HeaderTableRender";
-import EditorConvertToHTML from "./HTMLEditor";
-import Table from "./Table";
+import { handleRemoveEleTags, countCharacterSameValue } from "../../utils";
+import Button from "../Button";
+import HeaderTableRender from "../HeaderTableRender";
+import EditorConvertToHTML from "../HTMLEditor";
+import Table from "../Table";
 
 const TestExamOne = () => {
   const [value, setValue] = useState("");

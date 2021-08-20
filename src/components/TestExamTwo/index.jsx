@@ -3,11 +3,12 @@ import {
   sortAlphabetically,
   removeSignLetter,
   filterSearchAdvance,
-} from "../utils";
-import Input from "./Input";
-import Button from "./Button";
-import HeaderTableRender from "./HeaderTableRender";
-import Table from "./Table";
+} from "../../utils";
+import Input from "../Input";
+import Button from "../Button";
+import HeaderTableRender from "../HeaderTableRender";
+import Table from "../Table";
+import "./index.css";
 
 const TestExamTwo = () => {
   const [infomation, setInfomation] = useState({ fName: "", lName: "" });
@@ -26,10 +27,10 @@ const TestExamTwo = () => {
   const handleSubmitInfomation = (e) => {
     e.preventDefault();
     if (!infomation.lName && !infomation.fName) {
-      setError(true)
+      setError(true);
       return;
     }
-    setError(false)
+    setError(false);
     const dataNew = [...todos, infomation];
     localStorage.setItem("data", JSON.stringify(sortAlphabetically(dataNew)));
     setInfomation({ fName: "", lName: "" });

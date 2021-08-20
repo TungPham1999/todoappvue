@@ -1,3 +1,5 @@
+import "./index.css";
+
 const Navigation = (props) => {
   return (
     <ul className={`tabs__nav`}>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import TestExamTwo from "./TestExamTwo.jsx";
-import TestExamOne from "./TestExamOne.jsx";
+import TestExamTwo from "../TestExamTwo";
+import TestExamOne from "../TestExamOne";
 
 class Tab extends Component {
   components = {

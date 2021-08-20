@@ -1,3 +1,5 @@
+import "./index.css";
+
 const Input = (props) => {
   const { value, name, type, onInputChange, placeholder } = props;
   const handleChange = (e) => {
